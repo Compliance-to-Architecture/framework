@@ -239,6 +239,54 @@ ships `docs/constitution/42-COHERENT-INTEGRATION-MANDATE.md`, the
 meta-gate at `scripts/ci/check-coherent-integration.mjs`, and the CI
 workflow at `.github/workflows/integration-coherence-alive.yml`.
 
+## Amendment 7 — Platform meta-index (generated)
+
+A conforming implementation MUST publish a **platform meta-index**: a
+single GENERATED artefact that catalogs every named surface in the
+system. The meta-index does not own data — it indexes the per-domain
+canonical sources that do. Each entry is a pointer of the form
+`{ kind, name, path, declared_in, depends_on }` where `declared_in[]`
+cites the per-domain manifest or source file that owns the truth.
+
+The meta-index MUST be:
+
+1. **Generated**, never hand-edited. The conforming implementation
+   ships a build script that aggregates the per-domain sources into
+   the meta-index. The output filename SHOULD follow a
+   `*.generated.json` convention so it is observably non-canonical.
+2. **Strictly a projection.** Each entry's content beyond `kind`,
+   `name`, `path`, `declared_in`, `depends_on` is forbidden. The
+   meta-index never duplicates declarations.
+3. **Enforced by a bijection gate** that runs on every PR and push and
+   fails when:
+   - the committed meta-index disagrees with a fresh build (drift),
+   - any entry's `path` points at a file that does not exist,
+   - any on-disk surface is missing from the meta-index, or
+   - any `depends_on` reference points at an entry not in the index.
+
+Rationale: a hand-maintained mega-manifest would become the
+fragmentation it tries to solve — two facts about the same surface in
+two files would violate Amendment 4 (single implementation). The
+generated-projection contract is the only safe shape: per-domain
+manifests own their truth; the meta-index is a deterministic view;
+the bijection gate enforces both directions.
+
+Composition: Amendment 7 stacks on top of Amendments 4, 5, and 6.
+Amendment 4 forbids duplicate implementations. Amendment 5 forbids
+silent debt. Amendment 6 forbids dead gates / orphan manifests /
+false-green workflows. Amendment 7 makes the full system inspectable
+as one unit — every component is named, every name traces back to its
+canonical declaration, and every declaration projects into the index.
+
+Reference implementation: the ReguNav + Code Constitution monorepo
+ships `docs/constitution/43-PLATFORM-META-INDEX.md`, the generator at
+`scripts/build/build-platform-meta-index.mjs`, the output at
+`packages/manifests/src/platform-meta-index.generated.json` (354
+entries across 23 kinds at first run), the schema at
+`packages/manifests/src/platform-meta-index.schema.json`, the gate at
+`scripts/ci/check-platform-meta-index.mjs`, and the workflow at
+`.github/workflows/integration-coherence-alive.yml`.
+
 ## Future amendments
 
 Amendments require:
