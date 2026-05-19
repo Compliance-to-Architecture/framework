@@ -187,6 +187,58 @@ ships `DEVIATIONS.md` at the repo root, the constitution at
 `scripts/ci/check-zero-deviations.mjs`, and the CI workflow at
 `.github/workflows/zero-deviation-alive.yml`.
 
+## Amendment 6 — Coherent-integration mandate
+
+Every named component in a conforming implementation MUST integrate
+with the rest of the system through **bidirectional canonical
+references** — registry → component AND component → registry — and the
+integration MUST be verified by a CI gate at every merge.
+
+A "named component" is any of: engine, agent, rail, schema, manifest,
+dictionary, registry, endpoint, policy, middleware, gate, worker, or
+canonical implementation (Amendment 4). A surface that exists on disk
+but is not referenced by any manifest, registry, event-family
+declaration, or gate is a §0 violation.
+
+**The system is one unit, not a federation of islands.**
+
+A conforming implementation MUST publish gates that enforce at least
+three classes of bidirectional integration:
+
+1. **No dead gates** — every CI gate script under
+   `scripts/ci/check-*` MUST be invoked by at least one workflow.
+2. **No orphan manifests** — every machine-readable manifest MUST be
+   both imported by at least one source file AND read by at least one
+   CI gate. A manifest with no importer is unused; a manifest with no
+   gate is unenforced.
+3. **No false-green workflows** — every CI workflow MUST do exactly
+   one real thing: invoke a gate, build, typecheck, test, deploy, or
+   route a webhook. A workflow that adds a green checkmark without
+   verifying anything is forbidden.
+
+Rationale: prior to Amendment 6, conforming implementations had three
+categories of silent islands:
+
+- workers without manifest entries (deployed via wrangler but absent
+  from the resource manifest, so state-reconciliation had nothing to
+  diff against),
+- rails without PDP coverage (mounted but missing from the path-to-
+  resource map, so the policy decision point silently allowed
+  unauthorised access on null resource kind),
+- duplicated registries (sub-processor lists, JWT verifiers, outbound
+  email templates) that drifted across surfaces.
+
+Amendment 4 (single-implementation mandate) forbids duplication.
+Amendment 5 (zero-deviation mandate) forbids silent debt. Amendment 6
+forbids the broader pattern: a component that exists but is not part
+of the system. Together the three amendments make "this is one
+coherent unit" provable at every merge, not asserted in marketing copy.
+
+Reference implementation: the ReguNav + Code Constitution monorepo
+ships `docs/constitution/42-COHERENT-INTEGRATION-MANDATE.md`, the
+meta-gate at `scripts/ci/check-coherent-integration.mjs`, and the CI
+workflow at `.github/workflows/integration-coherence-alive.yml`.
+
 ## Future amendments
 
 Amendments require:
