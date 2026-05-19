@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:pipl-china:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "Personal Information Protection Law — China",
+  "description": "PRC Personal Information Protection Law (2021), covering processing of personal information of natural persons in China and certain extraterritorial activities.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "pipl@2021",
+      "shortName": "PIPL",
+      "title": "Personal Information Protection Law of the People's Republic of China",
+      "citation": "PIPL (2021)",
+      "url": "http://en.npc.gov.cn.cdurl.cn/2021-12/29/c_694559.htm",
+      "publisher": "Standing Committee of the National People's Congress of the PRC",
+      "publishedAt": "2021-08-20",
+      "category": "data-protection",
+      "inForceFrom": "2021-11-01"
+    },
+    "jurisdictions": [
+      "CN"
+    ],
+    "appliesTo": {
+      "domains": [
+        "personal_information"
+      ],
+      "entityRoles": [
+        "personal_information_handler",
+        "entrusted_party"
+      ]
+    },
+    "includedRuleGroups": [
+      "legal_basis_and_consent",
+      "rights_of_individuals",
+      "obligations_of_handlers",
+      "cross_border_transfer",
+      "sensitive_personal_information",
+      "automated_decision_making"
+    ],
+    "artefacts": {
+      "framework": "../src/pipl-china.ts"
+    },
+    "supervisoryBodies": [
+      "Cyberspace Administration of China (CAC)"
+    ]
+  }
+}

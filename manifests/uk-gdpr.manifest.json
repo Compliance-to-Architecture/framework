@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:uk-gdpr:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "UK GDPR (Data Protection Act 2018)",
+  "description": "UK retained EU law equivalent to the GDPR after Brexit, read with the Data Protection Act 2018.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "uk-gdpr@2018",
+      "shortName": "UK GDPR",
+      "title": "UK GDPR (as retained by the European Union (Withdrawal) Act 2018) + Data Protection Act 2018",
+      "citation": "UK GDPR + DPA 2018",
+      "url": "https://www.legislation.gov.uk/ukpga/2018/12/contents",
+      "publisher": "UK Parliament",
+      "publishedAt": "2018-05-23",
+      "category": "data-protection",
+      "inForceFrom": "2018-05-25"
+    },
+    "jurisdictions": [
+      "UK"
+    ],
+    "appliesTo": {
+      "domains": [
+        "personal_data_processing"
+      ],
+      "entityRoles": [
+        "controller",
+        "processor",
+        "dpo",
+        "representative"
+      ]
+    },
+    "includedRuleGroups": [
+      "territorial_scope",
+      "lawful_basis",
+      "data_subject_rights",
+      "controller_obligations",
+      "processor_obligations",
+      "international_transfers",
+      "dpia",
+      "breach_notification"
+    ],
+    "artefacts": {
+      "framework": "../src/uk-gdpr.ts"
+    },
+    "supervisoryBodies": [
+      "Information Commissioner's Office (ICO)"
+    ]
+  }
+}

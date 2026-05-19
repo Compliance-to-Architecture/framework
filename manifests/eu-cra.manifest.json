@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:eu-cra:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "EU Cyber Resilience Act",
+  "description": "Regulation (EU) 2024/2847 on horizontal cybersecurity requirements for products with digital elements.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "eu-cra@2024-2847",
+      "shortName": "EU CRA",
+      "title": "Regulation (EU) 2024/2847",
+      "citation": "Regulation (EU) 2024/2847 (CRA)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj",
+      "publisher": "European Parliament and Council of the European Union",
+      "publishedAt": "2024-10-23",
+      "category": "cybersecurity",
+      "inForceFrom": "2024-12-10",
+      "applicableFrom": "2027-12-11"
+    },
+    "jurisdictions": [
+      "EU",
+      "EEA"
+    ],
+    "appliesTo": {
+      "domains": [
+        "product_cybersecurity"
+      ],
+      "entityRoles": [
+        "manufacturer",
+        "importer",
+        "distributor"
+      ],
+      "systemTypes": [
+        "product_with_digital_elements"
+      ]
+    },
+    "includedRuleGroups": [
+      "essential_cybersecurity_requirements",
+      "vulnerability_handling",
+      "conformity_assessment",
+      "ce_marking",
+      "incident_notification"
+    ],
+    "artefacts": {
+      "framework": "../src/eu-cra.ts"
+    },
+    "supervisoryBodies": [
+      "Market surveillance authorities",
+      "ENISA"
+    ]
+  }
+}

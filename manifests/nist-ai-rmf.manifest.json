@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:nist-ai-rmf:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "NIST AI Risk Management Framework 1.0",
+  "description": "Voluntary US framework for managing risks posed by artificial intelligence to individuals, organizations and society.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "nist-ai-rmf@1.0",
+      "shortName": "NIST AI RMF",
+      "title": "NIST AI Risk Management Framework (AI RMF 1.0)",
+      "citation": "NIST AI 100-1",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "publisher": "US National Institute of Standards and Technology",
+      "publishedAt": "2023-01-26",
+      "category": "ai-regulation"
+    },
+    "jurisdictions": [
+      "US"
+    ],
+    "appliesTo": {
+      "domains": [
+        "artificial_intelligence"
+      ],
+      "entityRoles": [
+        "provider",
+        "deployer"
+      ],
+      "systemTypes": [
+        "ai_system"
+      ]
+    },
+    "includedRuleGroups": [
+      "govern",
+      "map",
+      "measure",
+      "manage"
+    ],
+    "artefacts": {
+      "framework": "../src/nist-ai-rmf.ts"
+    },
+    "supervisoryBodies": [
+      "Voluntary — no statutory supervisor"
+    ]
+  }
+}

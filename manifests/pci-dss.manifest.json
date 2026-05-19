@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:pci-dss:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "PCI DSS v4.0",
+  "description": "Payment Card Industry Data Security Standard, v4.0 — global baseline for protecting cardholder data.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "pci-dss@4.0",
+      "shortName": "PCI DSS",
+      "title": "Payment Card Industry Data Security Standard v4.0",
+      "citation": "PCI DSS v4.0",
+      "url": "https://www.pcisecuritystandards.org/document_library/",
+      "publisher": "PCI Security Standards Council",
+      "publishedAt": "2022-03-31",
+      "category": "financial-services"
+    },
+    "jurisdictions": [
+      "INTERNATIONAL"
+    ],
+    "appliesTo": {
+      "domains": [
+        "cardholder_data"
+      ],
+      "entityRoles": [
+        "merchant",
+        "service_provider"
+      ],
+      "sectors": [
+        "payments"
+      ]
+    },
+    "includedRuleGroups": [
+      "req_1_network_security_controls",
+      "req_2_secure_configurations",
+      "req_3_protect_stored_account_data",
+      "req_4_protect_cardholder_data_in_transit",
+      "req_5_anti_malware",
+      "req_6_secure_systems_and_software",
+      "req_7_restrict_access",
+      "req_8_identify_authenticate_users",
+      "req_9_restrict_physical_access",
+      "req_10_log_and_monitor",
+      "req_11_test_security",
+      "req_12_information_security_program"
+    ],
+    "artefacts": {
+      "framework": "../src/pci-dss.ts"
+    },
+    "supervisoryBodies": [
+      "Acquirers",
+      "QSAs (Qualified Security Assessors)"
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:nis2:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "NIS2 Directive",
+  "description": "Directive (EU) 2022/2555 on measures for a high common level of cybersecurity across the Union, repealing the original NIS Directive.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "nis2@2022-2555",
+      "shortName": "NIS2",
+      "title": "Directive (EU) 2022/2555",
+      "citation": "Directive (EU) 2022/2555 (NIS2)",
+      "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj",
+      "publisher": "European Parliament and Council of the European Union",
+      "publishedAt": "2022-12-14",
+      "category": "cybersecurity",
+      "inForceFrom": "2023-01-16",
+      "applicableFrom": "2024-10-18"
+    },
+    "jurisdictions": [
+      "EU",
+      "EEA"
+    ],
+    "appliesTo": {
+      "domains": [
+        "cybersecurity",
+        "network_information_systems"
+      ],
+      "entityRoles": [
+        "essential_entity",
+        "important_entity"
+      ],
+      "sectors": [
+        "energy",
+        "transport",
+        "banking",
+        "financial_market_infrastructure",
+        "health",
+        "drinking_water",
+        "waste_water",
+        "digital_infrastructure",
+        "ict_service_management",
+        "public_administration",
+        "space"
+      ]
+    },
+    "includedRuleGroups": [
+      "cybersecurity_risk_management",
+      "incident_reporting",
+      "supply_chain_security",
+      "vulnerability_disclosure",
+      "governance_accountability"
+    ],
+    "artefacts": {
+      "framework": "../src/nis2.ts"
+    },
+    "supervisoryBodies": [
+      "Member-State national competent authorities",
+      "ENISA"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:appi-japan:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "Act on the Protection of Personal Information (APPI) — Japan",
+  "description": "Japan's principal data protection statute, as amended by the 2020/2021 reforms.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "appi@2003-amended-2020",
+      "shortName": "APPI",
+      "title": "Act on the Protection of Personal Information (Act No. 57 of 2003), as amended",
+      "citation": "Act No. 57 of 2003 (APPI)",
+      "url": "https://www.ppc.go.jp/en/legal/",
+      "publisher": "Government of Japan, Personal Information Protection Commission",
+      "publishedAt": "2003-05-30",
+      "category": "data-protection",
+      "inForceFrom": "2005-04-01"
+    },
+    "jurisdictions": [
+      "JP"
+    ],
+    "appliesTo": {
+      "domains": [
+        "personal_information"
+      ],
+      "entityRoles": [
+        "personal_information_handling_business_operator",
+        "trustee"
+      ]
+    },
+    "includedRuleGroups": [
+      "scope_and_definitions",
+      "obligations_of_business_operators",
+      "rights_of_individuals",
+      "cross_border_transfer",
+      "anonymously_processed_information"
+    ],
+    "artefacts": {
+      "framework": "../src/appi-japan.ts"
+    },
+    "supervisoryBodies": [
+      "Personal Information Protection Commission (PPC)"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:lgpd-brazil:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "Lei Geral de Proteção de Dados (LGPD) — Brazil",
+  "description": "Lei nº 13.709/2018 — Brazilian General Data Protection Law.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "lgpd@2018-13709",
+      "shortName": "LGPD",
+      "title": "Lei nº 13.709/2018",
+      "citation": "Lei nº 13.709/2018 (LGPD)",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+      "publisher": "Federal Government of Brazil",
+      "publishedAt": "2018-08-14",
+      "category": "data-protection",
+      "inForceFrom": "2020-09-18"
+    },
+    "jurisdictions": [
+      "BR"
+    ],
+    "appliesTo": {
+      "domains": [
+        "personal_data_processing"
+      ],
+      "entityRoles": [
+        "controller",
+        "processor",
+        "dpo"
+      ]
+    },
+    "includedRuleGroups": [
+      "legal_bases",
+      "data_subject_rights",
+      "international_transfers",
+      "security_and_secrecy",
+      "good_practices_governance",
+      "sanctions"
+    ],
+    "artefacts": {
+      "framework": "../src/lgpd-brazil.ts"
+    },
+    "supervisoryBodies": [
+      "Autoridade Nacional de Proteção de Dados (ANPD)"
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:iso-27701:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "ISO/IEC 27701:2019 — Privacy Information Management",
+  "description": "Extension to ISO/IEC 27001 establishing requirements and guidance for a Privacy Information Management System (PIMS).",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "iso-27701@2019",
+      "shortName": "ISO/IEC 27701",
+      "title": "ISO/IEC 27701:2019 — Privacy information management",
+      "citation": "ISO/IEC 27701:2019",
+      "url": "https://www.iso.org/standard/71670.html",
+      "publisher": "International Organization for Standardization",
+      "publishedAt": "2019-08-06",
+      "category": "data-protection"
+    },
+    "jurisdictions": [
+      "INTERNATIONAL"
+    ],
+    "appliesTo": {
+      "domains": [
+        "privacy",
+        "data_protection"
+      ],
+      "entityRoles": [
+        "pii_controller",
+        "pii_processor"
+      ]
+    },
+    "includedRuleGroups": [
+      "pims_specific_requirements",
+      "annex_a_pii_controller_controls",
+      "annex_b_pii_processor_controls"
+    ],
+    "artefacts": {
+      "framework": "../src/iso-27701.ts"
+    },
+    "supervisoryBodies": [
+      "Accredited certification bodies"
+    ]
+  }
+}

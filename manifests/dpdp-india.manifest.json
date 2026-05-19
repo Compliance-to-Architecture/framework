@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:dpdp-india:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "Digital Personal Data Protection Act 2023 — India",
+  "description": "India's first comprehensive data-protection statute regulating processing of digital personal data.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "dpdp@2023",
+      "shortName": "DPDP",
+      "title": "Digital Personal Data Protection Act, 2023",
+      "citation": "Act No. 22 of 2023",
+      "url": "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
+      "publisher": "Government of India, Ministry of Electronics and Information Technology",
+      "publishedAt": "2023-08-11",
+      "category": "data-protection"
+    },
+    "jurisdictions": [
+      "IN"
+    ],
+    "appliesTo": {
+      "domains": [
+        "digital_personal_data"
+      ],
+      "entityRoles": [
+        "data_fiduciary",
+        "data_processor",
+        "significant_data_fiduciary",
+        "consent_manager"
+      ]
+    },
+    "includedRuleGroups": [
+      "applicability",
+      "obligations_of_data_fiduciary",
+      "rights_and_duties_of_data_principal",
+      "special_provisions",
+      "data_protection_board"
+    ],
+    "artefacts": {
+      "framework": "../src/dpdp-india.ts"
+    },
+    "supervisoryBodies": [
+      "Data Protection Board of India"
+    ]
+  }
+}

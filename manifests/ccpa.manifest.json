@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:ccpa:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "California Consumer Privacy Act (with CPRA amendments)",
+  "description": "California state privacy law (Cal. Civ. Code §§ 1798.100–1798.199.100), as amended by the California Privacy Rights Act.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "ccpa-cpra@2023",
+      "shortName": "CCPA/CPRA",
+      "title": "California Consumer Privacy Act as amended by the California Privacy Rights Act",
+      "citation": "Cal. Civ. Code §§ 1798.100–1798.199.100",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=1.81.5.",
+      "publisher": "State of California",
+      "publishedAt": "2018-06-28",
+      "category": "data-protection",
+      "inForceFrom": "2020-01-01",
+      "applicableFrom": "2023-01-01"
+    },
+    "jurisdictions": [
+      "US-CA"
+    ],
+    "appliesTo": {
+      "domains": [
+        "personal_information"
+      ],
+      "entityRoles": [
+        "business",
+        "service_provider",
+        "contractor",
+        "third_party"
+      ]
+    },
+    "includedRuleGroups": [
+      "applicability_thresholds",
+      "consumer_rights",
+      "notice_requirements",
+      "service_provider_contracts",
+      "sensitive_personal_information",
+      "automated_decision_making"
+    ],
+    "artefacts": {
+      "framework": "../src/ccpa.ts"
+    },
+    "supervisoryBodies": [
+      "California Privacy Protection Agency (CPPA)",
+      "California Attorney General"
+    ]
+  }
+}

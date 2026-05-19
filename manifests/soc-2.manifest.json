@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:soc-2:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "SOC 2 — Trust Services Criteria",
+  "description": "AICPA examination engagement reporting on controls at a service organization relevant to security, availability, processing integrity, confidentiality, and privacy.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "soc-2@tsc-2017",
+      "shortName": "SOC 2",
+      "title": "AICPA Trust Services Criteria (TSC), 2017 with 2022 Points of Focus",
+      "citation": "AICPA TSC (Trust Services Criteria)",
+      "url": "https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/trustservices.html",
+      "publisher": "American Institute of Certified Public Accountants",
+      "publishedAt": "2017-04-01",
+      "category": "industry-standard"
+    },
+    "jurisdictions": [
+      "US"
+    ],
+    "appliesTo": {
+      "domains": [
+        "information_security",
+        "privacy"
+      ],
+      "entityRoles": [
+        "service_organization"
+      ]
+    },
+    "includedRuleGroups": [
+      "cc1_control_environment",
+      "cc2_communication_information",
+      "cc3_risk_assessment",
+      "cc4_monitoring_activities",
+      "cc5_control_activities",
+      "cc6_logical_physical_access",
+      "cc7_system_operations",
+      "cc8_change_management",
+      "cc9_risk_mitigation",
+      "additional_criteria_availability",
+      "additional_criteria_processing_integrity",
+      "additional_criteria_confidentiality",
+      "additional_criteria_privacy"
+    ],
+    "artefacts": {
+      "framework": "../src/soc-2.ts"
+    },
+    "supervisoryBodies": [
+      "Independent CPA service auditor"
+    ]
+  }
+}

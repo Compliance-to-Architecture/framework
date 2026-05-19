@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:hipaa:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "HIPAA — Privacy, Security & Breach Notification Rules",
+  "description": "Health Insurance Portability and Accountability Act of 1996, with regulations at 45 CFR Parts 160 and 164 (Privacy Rule, Security Rule, Breach Notification Rule).",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "hipaa@1996",
+      "shortName": "HIPAA",
+      "title": "Health Insurance Portability and Accountability Act of 1996 — 45 CFR Parts 160 & 164",
+      "citation": "45 CFR §§ 160, 164",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C",
+      "publisher": "US Department of Health & Human Services (HHS)",
+      "publishedAt": "1996-08-21",
+      "category": "healthcare"
+    },
+    "jurisdictions": [
+      "US"
+    ],
+    "appliesTo": {
+      "domains": [
+        "protected_health_information"
+      ],
+      "entityRoles": [
+        "covered_entity",
+        "business_associate",
+        "subcontractor"
+      ]
+    },
+    "includedRuleGroups": [
+      "privacy_rule",
+      "security_rule_administrative_safeguards",
+      "security_rule_physical_safeguards",
+      "security_rule_technical_safeguards",
+      "breach_notification_rule",
+      "enforcement_rule"
+    ],
+    "artefacts": {
+      "framework": "../src/hipaa.ts"
+    },
+    "supervisoryBodies": [
+      "HHS Office for Civil Rights (OCR)"
+    ]
+  }
+}

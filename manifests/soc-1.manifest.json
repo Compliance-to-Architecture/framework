@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:soc-1:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "SOC 1 — System and Organization Controls 1 (SSAE 18)",
+  "description": "AICPA examination engagement reporting on controls relevant to user entities' internal control over financial reporting (ICFR).",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "soc-1@ssae-18",
+      "shortName": "SOC 1",
+      "title": "AICPA SSAE No. 18, AT-C Section 320",
+      "citation": "AICPA SSAE 18",
+      "url": "https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/sorhome.html",
+      "publisher": "American Institute of Certified Public Accountants",
+      "publishedAt": "2017-05-01",
+      "category": "industry-standard"
+    },
+    "jurisdictions": [
+      "US"
+    ],
+    "appliesTo": {
+      "domains": [
+        "financial_reporting"
+      ],
+      "entityRoles": [
+        "service_organization"
+      ]
+    },
+    "includedRuleGroups": [
+      "control_objectives",
+      "tsc_for_icfr",
+      "complementary_user_entity_controls",
+      "complementary_subservice_organization_controls"
+    ],
+    "artefacts": {
+      "framework": "../src/soc-1.ts"
+    },
+    "supervisoryBodies": [
+      "Independent CPA service auditor"
+    ]
+  }
+}

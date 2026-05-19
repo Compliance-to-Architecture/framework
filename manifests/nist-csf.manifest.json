@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:nist-csf:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "NIST Cybersecurity Framework 2.0",
+  "description": "Voluntary US framework for managing and reducing cybersecurity risk.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "nist-csf@2.0",
+      "shortName": "NIST CSF",
+      "title": "NIST Cybersecurity Framework 2.0",
+      "citation": "NIST CSF 2.0",
+      "url": "https://www.nist.gov/cyberframework",
+      "publisher": "US National Institute of Standards and Technology",
+      "publishedAt": "2024-02-26",
+      "category": "cybersecurity"
+    },
+    "jurisdictions": [
+      "US"
+    ],
+    "appliesTo": {
+      "domains": [
+        "cybersecurity"
+      ]
+    },
+    "includedRuleGroups": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "artefacts": {
+      "framework": "../src/nist-csf.ts"
+    },
+    "supervisoryBodies": [
+      "Voluntary — no statutory supervisor"
+    ]
+  }
+}

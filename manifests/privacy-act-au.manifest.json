@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:privacy-act-au:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "Privacy Act 1988 — Australia",
+  "description": "Commonwealth statute regulating the handling of personal information about individuals, framed around the 13 Australian Privacy Principles.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "privacy-act-au@1988",
+      "shortName": "Privacy Act (AU)",
+      "title": "Privacy Act 1988 (Cth) — including the Australian Privacy Principles",
+      "citation": "Privacy Act 1988 (Cth)",
+      "url": "https://www.legislation.gov.au/Series/C2004A03712",
+      "publisher": "Commonwealth of Australia",
+      "publishedAt": "1988-12-14",
+      "category": "data-protection",
+      "inForceFrom": "1989-01-01"
+    },
+    "jurisdictions": [
+      "AU"
+    ],
+    "appliesTo": {
+      "domains": [
+        "personal_information"
+      ],
+      "entityRoles": [
+        "app_entity",
+        "credit_provider",
+        "credit_reporting_body",
+        "tfn_recipient"
+      ]
+    },
+    "includedRuleGroups": [
+      "australian_privacy_principles",
+      "credit_reporting",
+      "notifiable_data_breaches",
+      "tfn_handling"
+    ],
+    "artefacts": {
+      "framework": "../src/privacy-act-au.ts"
+    },
+    "supervisoryBodies": [
+      "Office of the Australian Information Commissioner (OAIC)"
+    ]
+  }
+}

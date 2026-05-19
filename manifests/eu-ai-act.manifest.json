@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:eu-ai-act:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "EU AI Act",
+  "description": "Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "eu-ai-act@2024-1689",
+      "shortName": "EU AI Act",
+      "title": "Regulation (EU) 2024/1689",
+      "citation": "Regulation (EU) 2024/1689",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "publisher": "European Parliament and Council of the European Union",
+      "publishedAt": "2024-07-12",
+      "category": "ai-regulation",
+      "inForceFrom": "2024-08-01",
+      "applicableFrom": "2026-08-02"
+    },
+    "jurisdictions": [
+      "EU",
+      "EEA"
+    ],
+    "appliesTo": {
+      "domains": [
+        "artificial_intelligence"
+      ],
+      "entityRoles": [
+        "provider",
+        "deployer",
+        "importer",
+        "distributor",
+        "authorized-representative"
+      ],
+      "systemTypes": [
+        "ai_system",
+        "general_purpose_ai_model",
+        "high_risk_ai_system"
+      ]
+    },
+    "includedRuleGroups": [
+      "applicability",
+      "risk_classification",
+      "prohibited_practices",
+      "high_risk_requirements",
+      "transparency",
+      "general_purpose_ai",
+      "human_oversight",
+      "post_market_monitoring",
+      "incident_reporting",
+      "governance",
+      "documentation"
+    ],
+    "artefacts": {
+      "framework": "../src/eu-ai-act.ts"
+    },
+    "deadlines": [
+      {
+        "name": "Prohibited practices applicable",
+        "date": "2025-02-02",
+        "appliesTo": "prohibited_practices",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      },
+      {
+        "name": "GPAI obligations applicable",
+        "date": "2025-08-02",
+        "appliesTo": "general_purpose_ai"
+      },
+      {
+        "name": "Main applicability date",
+        "date": "2026-08-02"
+      },
+      {
+        "name": "High-risk Annex III in scope",
+        "date": "2027-08-02",
+        "appliesTo": "high_risk_requirements"
+      }
+    ],
+    "supervisoryBodies": [
+      "European AI Office",
+      "Member-State national competent authorities",
+      "European Data Protection Supervisor"
+    ]
+  }
+}

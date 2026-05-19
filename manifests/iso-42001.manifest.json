@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:iso-42001:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "ISO/IEC 42001:2023 — AI Management System",
+  "description": "International standard specifying requirements for establishing, implementing, maintaining and continually improving an AI Management System (AIMS).",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "iso-42001@2023",
+      "shortName": "ISO/IEC 42001",
+      "title": "ISO/IEC 42001:2023 — Artificial intelligence — Management system",
+      "citation": "ISO/IEC 42001:2023",
+      "url": "https://www.iso.org/standard/81230.html",
+      "publisher": "International Organization for Standardization",
+      "publishedAt": "2023-12-18",
+      "category": "industry-standard"
+    },
+    "jurisdictions": [
+      "INTERNATIONAL"
+    ],
+    "appliesTo": {
+      "domains": [
+        "artificial_intelligence"
+      ],
+      "entityRoles": [
+        "provider",
+        "deployer"
+      ],
+      "systemTypes": [
+        "ai_system"
+      ]
+    },
+    "includedRuleGroups": [
+      "context_of_organization",
+      "leadership",
+      "planning",
+      "support",
+      "operation",
+      "performance_evaluation",
+      "improvement",
+      "annex_a_ai_controls"
+    ],
+    "artefacts": {
+      "framework": "../src/iso-42001.ts"
+    },
+    "supervisoryBodies": [
+      "Accredited certification bodies (UKAS, ANAB, etc)"
+    ]
+  }
+}

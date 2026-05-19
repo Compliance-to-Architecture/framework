@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:iso-27001:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "ISO/IEC 27001:2022 — Information Security Management",
+  "description": "International standard specifying requirements for an information security management system (ISMS).",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "iso-27001@2022",
+      "shortName": "ISO/IEC 27001",
+      "title": "ISO/IEC 27001:2022 — Information security, cybersecurity and privacy protection — Information security management systems",
+      "citation": "ISO/IEC 27001:2022",
+      "url": "https://www.iso.org/standard/27001",
+      "publisher": "International Organization for Standardization",
+      "publishedAt": "2022-10-25",
+      "category": "information-security"
+    },
+    "jurisdictions": [
+      "INTERNATIONAL"
+    ],
+    "appliesTo": {
+      "domains": [
+        "information_security"
+      ],
+      "entityRoles": [
+        "controller",
+        "processor",
+        "service_provider"
+      ]
+    },
+    "includedRuleGroups": [
+      "context_of_organization",
+      "leadership",
+      "planning",
+      "support",
+      "operation",
+      "performance_evaluation",
+      "improvement",
+      "annex_a_93_controls"
+    ],
+    "artefacts": {
+      "framework": "../src/iso-27001.ts"
+    },
+    "supervisoryBodies": [
+      "Accredited certification bodies"
+    ]
+  }
+}

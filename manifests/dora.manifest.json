@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:dora:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "Digital Operational Resilience Act (DORA)",
+  "description": "Regulation (EU) 2022/2554 on digital operational resilience for the financial sector.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "dora@2022-2554",
+      "shortName": "DORA",
+      "title": "Regulation (EU) 2022/2554",
+      "citation": "Regulation (EU) 2022/2554 (DORA)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
+      "publisher": "European Parliament and Council of the European Union",
+      "publishedAt": "2022-12-14",
+      "category": "financial-services",
+      "inForceFrom": "2023-01-16",
+      "applicableFrom": "2025-01-17"
+    },
+    "jurisdictions": [
+      "EU",
+      "EEA"
+    ],
+    "appliesTo": {
+      "domains": [
+        "ict_risk",
+        "operational_resilience"
+      ],
+      "entityRoles": [
+        "financial_entity",
+        "ict_third_party_service_provider"
+      ],
+      "sectors": [
+        "financial_services",
+        "credit_institutions",
+        "investment_firms",
+        "insurance",
+        "crypto_asset_service_providers"
+      ]
+    },
+    "includedRuleGroups": [
+      "ict_risk_management",
+      "ict_incident_reporting",
+      "digital_operational_resilience_testing",
+      "ict_third_party_risk",
+      "information_sharing_arrangements",
+      "oversight_of_critical_third_party_providers"
+    ],
+    "artefacts": {
+      "framework": "../src/dora.ts"
+    },
+    "supervisoryBodies": [
+      "European Supervisory Authorities (EBA, EIOPA, ESMA)",
+      "National competent authorities"
+    ]
+  }
+}

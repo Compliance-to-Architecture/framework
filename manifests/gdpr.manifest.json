@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "regunav.manifest.v1",
+  "id": "regunav:manifest:rule-pack:gdpr:1.0.0",
+  "kind": "rule-pack",
+  "displayName": "General Data Protection Regulation (EU)",
+  "description": "Regulation (EU) 2016/679 — protection of natural persons with regard to the processing of personal data and on the free movement of such data.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-16",
+  "publisher": {
+    "name": "Regunav Inc.",
+    "url": "https://regunav.com",
+    "contact": "rule-packs@regunav.com"
+  },
+  "license": "Apache-2.0",
+  "status": "preview",
+  "requiredDictionaries": [
+    "regunav:dictionary:obligation-category",
+    "regunav:dictionary:control-category",
+    "regunav:dictionary:evidence-type",
+    "regunav:dictionary:evidence-frequency",
+    "regunav:dictionary:authority-category",
+    "regunav:dictionary:architecture-capability",
+    "regunav:dictionary:actor-role",
+    "regunav:dictionary:reason-code"
+  ],
+  "requiredProfiles": [
+    "regunav.core.v1",
+    "regunav.conformance.v1"
+  ],
+  "payload": {
+    "authority": {
+      "id": "gdpr@2016-679",
+      "shortName": "GDPR",
+      "title": "Regulation (EU) 2016/679",
+      "citation": "Regulation (EU) 2016/679 (GDPR)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "publisher": "European Parliament and Council of the European Union",
+      "publishedAt": "2016-04-27",
+      "category": "data-protection",
+      "inForceFrom": "2016-05-24",
+      "applicableFrom": "2018-05-25"
+    },
+    "jurisdictions": [
+      "EU",
+      "EEA"
+    ],
+    "appliesTo": {
+      "domains": [
+        "personal_data_processing"
+      ],
+      "entityRoles": [
+        "controller",
+        "processor",
+        "joint-controller",
+        "dpo",
+        "representative"
+      ]
+    },
+    "includedRuleGroups": [
+      "territorial_scope",
+      "lawful_basis",
+      "data_subject_rights",
+      "controller_obligations",
+      "processor_obligations",
+      "international_transfers",
+      "dpia",
+      "breach_notification",
+      "supervisory_authorities"
+    ],
+    "artefacts": {
+      "framework": "../src/gdpr.ts"
+    },
+    "supervisoryBodies": [
+      "European Data Protection Board",
+      "Member-State Data Protection Authorities"
+    ]
+  }
+}
