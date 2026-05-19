@@ -143,6 +143,50 @@ gate at `scripts/ci/check-canonical-implementations.mjs`. Other
 implementations are encouraged to mirror this structure although the
 spec only requires that the manifest exists and the gate enforces it.
 
+## Amendment 5 — Zero-deviation mandate
+
+The default state of a conforming implementation's deviation registry
+(`DEVIATIONS.md` in the implementation's source tree) is **zero active
+deviations**. Any active deviation from a canonical implementation
+(Amendment 4) or any §0 mandate is itself a §0 violation.
+
+A "deviation" is a temporary, sunset-bound exception that MAY only be
+added when all of the following are true:
+
+1. The PR cannot proceed without breaking a §0 gate.
+2. The break is unavoidable for a legal, regulatory, or platform-level
+   reason — never "I haven't finished refactoring."
+3. Two named maintainers (per the implementation's `MAINTAINERS.md`)
+   sign off on the PR.
+4. A sunset date is committed in the same PR (max +90 days from merge).
+5. The entry references a tracked closure issue with a closure plan.
+
+A conforming implementation MUST publish:
+
+- The deviation registry file (`DEVIATIONS.md` at the source-tree
+  root), with a clearly delimited `## Active deviations` section.
+- A drift gate that runs on every change to the registry or the
+  capability manifest, and fails the build when the active-deviation
+  section contains any content other than the literal placeholder
+  `(none — last cleared YYYY-MM-DD)` UNLESS every entry conforms to
+  the five conditions above.
+- A `## Historical deviations` table that retains every closed
+  deviation as a closed-debt audit trail.
+
+Rationale: Amendment 4 forbids competing systems by construction.
+Amendment 5 closes the back-door — a developer can no longer ship a
+"temporary" duplicate with a TODO comment intending to refactor it
+later. Either the duplicate violates Amendment 4 and the canonical
+gate blocks it, or it satisfies the five conditions of Amendment 5
+and is a tracked, sunset, two-maintainer-approved exception that the
+regulator can read in the audit trail.
+
+Reference implementation: the ReguNav + Code Constitution monorepo
+ships `DEVIATIONS.md` at the repo root, the constitution at
+`docs/constitution/41-ZERO-DEVIATION-MANDATE.md`, the drift gate at
+`scripts/ci/check-zero-deviations.mjs`, and the CI workflow at
+`.github/workflows/zero-deviation-alive.yml`.
+
 ## Future amendments
 
 Amendments require:
