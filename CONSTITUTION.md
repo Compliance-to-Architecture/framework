@@ -339,6 +339,49 @@ the workflow at `.github/workflows/integration-coherence-alive.yml`,
 and the locked rule at `docs/constitution/44-CONSTITUTION-ENGINE.md`.
 First run: 0 blockers across 1,022 files.
 
+## Amendment 9 — Autonomous failure loop (push-primary)
+
+A conforming implementation MUST close the failure loop AUTOMATICALLY,
+on the fly, without a human in the critical path. Specifically:
+
+1. **Push primary.** Every workflow failure MUST emit a push event
+   (repository_dispatch or equivalent webhook) carrying a self-
+   contained payload that a subscribed LLM agent can act on without
+   a pull roundtrip. The payload includes: workflow metadata,
+   commit message + changed files, failed steps, recent logs.
+2. **Pull secondary.** A read endpoint MAY exist for an already-
+   active agent to fetch unbounded context, but **polling for new
+   failures is forbidden** as the primary mechanism. Polling
+   violates Amendment 2 (event-driven by spec, ≤30s latency).
+3. **Persistent record.** The same failure context MUST be appended
+   to an audit branch (e.g. `errors/`) for retrospective review by
+   regulators, auditors, or later agent runs.
+4. **Latency budget ≤60s** from failure detection to dispatch
+   emission. Within Amendment 2's overall ≤30s for the primary
+   event-driven contract; the extra 30s allows log-collection.
+
+**Surfacing failures to a human via email or GitHub issues is not
+sufficient.** A non-developer operator cannot read 100 issues a day.
+The constitution requires the system itself to wake up a subscribed
+agent to read and act. Issues remain as an audit trail for humans
+who want to review what happened — they are not the action channel.
+
+Composition: Amendment 4 forbids duplicate implementations.
+Amendment 5 forbids silent debt. Amendment 6 forbids dead gates.
+Amendment 7 generates the inventory. Amendment 8 catches latent
+pattern hazards before merge. Amendment 9 closes the loop on what
+escapes — every failure becomes a push to an agent, every
+recurrence becomes a new Amendment 8 rule, every audit demand
+returns a complete history from the errors branch.
+
+Reference implementation: the ReguNav + Code Constitution monorepo
+ships `.github/workflows/error-collector.yml` (the push emitter), an
+`/errors` branch for the persistent record, `/v1/constitution/failures`
+on the Constitution Gateway as the secondary pull surface, and
+`.github/workflows/autonomous-fix-agent.yml` as the subscribed-agent
+template (invokes anthropics/claude-code-action@v1). Locked rule at
+`docs/constitution/45-AUTONOMOUS-FAILURE-LOOP.md`.
+
 ## Future amendments
 
 Amendments require:
