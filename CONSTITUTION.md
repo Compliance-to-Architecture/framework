@@ -359,6 +359,16 @@ on the fly, without a human in the critical path. Specifically:
 4. **Latency budget ≤60s** from failure detection to dispatch
    emission. Within Amendment 2's overall ≤30s for the primary
    event-driven contract; the extra 30s allows log-collection.
+5. **Behind → ahead conversion.** Push is necessary but not
+   sufficient. Even perfect push is post-facto: a completion event
+   can only fire after the failure. There are two error horizons —
+   a KNOWN bad pattern is caught *ahead* by a pre-merge gate (it
+   never lands); a NOVEL pattern is caught *fast-behind* by this
+   loop (it happens once). The loop MUST convert behind → ahead:
+   the failure digest MUST propose a new static rule (Amendment 8)
+   so the novel class is caught pre-merge thereafter. Every novel
+   failure happens exactly once; a recurrence is a §0 violation
+   meaning the conversion step was skipped.
 
 **Surfacing failures to a human via email or GitHub issues is not
 sufficient.** A non-developer operator cannot read 100 issues a day.
