@@ -287,6 +287,58 @@ entries across 23 kinds at first run), the schema at
 `scripts/ci/check-platform-meta-index.mjs`, and the workflow at
 `.github/workflows/integration-coherence-alive.yml`.
 
+## Amendment 8 — Constitution engine (pluggable hazard rules)
+
+A conforming implementation MUST publish a **first-class library**
+that encodes constitutional hazards as **pluggable rules** and exposes
+them as a callable engine. Distinct from per-amendment structural
+drift gates (which forbid declared facts on disk), the engine covers
+**latent pattern hazards** — code that compiles + lints clean but
+breaks at runtime under specific input shapes.
+
+The engine MUST:
+
+1. Live as a typed library, not a one-off script. Each rule is its
+   own file under a rules registry; the registry is introspectable
+   (consumers can list every rule + its severity + its motivating
+   incident).
+2. Expose a single call surface: `checkContent(filename, content) →
+   Violation[]` that runs every applicable rule.
+3. Be wired into a CI gate that runs on every PR + push and fails
+   the build on any **blocker** severity. **Serious** and
+   **nice-to-have** severities are advisory but must be reported.
+4. Be composable — invokable programmatically by other agents,
+   IDE plugins, pre-commit hooks. The same code that runs in CI
+   runs at the developer's keyboard if they wire it.
+
+Each rule MUST carry:
+
+- a stable `rule_id`,
+- a `severity` (`blocker` / `serious` / `nice-to-have`),
+- an `amendment_ref` (which constitutional rule or incident it
+  encodes),
+- a comment in the source explaining the incident or anti-pattern
+  that motivated the rule.
+
+Adding a rule is the canonical response to a production incident:
+once a hazard pattern has been identified, it becomes a permanent
+mechanical check, not a tribal memory.
+
+Composition: Amendments 4 (single impl), 5 (zero-deviation), 6
+(coherent integration), 7 (meta-index) cover STRUCTURAL hazards.
+Amendment 8 covers LATENT PATTERN hazards. Together the eight
+amendments make the platform self-defending — incidents do not
+recur because they become rules.
+
+Reference implementation: the ReguNav + Code Constitution monorepo
+ships `packages/constitution-engine/` as a first-class workspace
+package with three seed rules (shell-injection-via-template-
+expansion, workflow-expression-in-run-block, hardcoded-secret-
+shaped-string), the gate at `scripts/ci/check-constitution-engine.mjs`,
+the workflow at `.github/workflows/integration-coherence-alive.yml`,
+and the locked rule at `docs/constitution/44-CONSTITUTION-ENGINE.md`.
+First run: 0 blockers across 1,022 files.
+
 ## Future amendments
 
 Amendments require:
